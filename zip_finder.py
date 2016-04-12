@@ -25,9 +25,7 @@ code_db = open('weather_codes.txt', 'r').read()
 
 for i in zip_dict:
     #m = re.search('{}.+'.format(i), code_db)
-
     m = re.search(i + '.*[PKXQ]\w{3}\s\s', code_db)
-
     #cm = re.search('^[PKXQ]{4}', m.group)
     # m = re.findall(i +'\s^[PKXQ]{4}', code_db)
     try:
