@@ -28,6 +28,6 @@ def weather_station_code_finder(city_list):
             city_code_list.append((city, code.group()))
         except:
             pass
-    print(city_code_list)
+    return city_code_list
 
-weather_station_code_finder(local_city_list_maker())
+print((weather_station_code_finder(['OK MUSKOGEE'])[0][1]).strip())
