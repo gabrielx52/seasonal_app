@@ -13,6 +13,10 @@ def local_city_grabber(starting_zip='98119', mile_radius=100):
     local_zips = zipcode.isinradius((zip_obj.lat, zip_obj.lon), mile_radius)
     return {'{} {}'.format(i.state, i.city) for i in local_zips}
 
+def plant_hardiness_zone(cities=local_city_grabber())
+
+    for city in cities:
+
 
 def weather_station_code_grabber(cities=local_city_grabber()):
     """returns list of weather station ICAO codes
@@ -31,11 +35,9 @@ def weather_station_code_grabber(cities=local_city_grabber()):
             pass
     return city_codes
 
-#pprint.pprint(local_city_grabber('06424'))
-pprint.pprint(weather_station_code_grabber())
-
+def weather_report_grabber(city_codes=weather_station_code_grabber())
 # #starting to get weather data. need to make mock produce data for cross reference
-# codes = weather_station_code_finder()
+
 # for i in codes:
 #     #print(i)
 #     r = requests.get('https://www.wunderground.com/history/airport/{}/2016/4/0/MonthlyHistory.html?format=1'.format(i))
@@ -43,3 +45,8 @@ pprint.pprint(weather_station_code_grabber())
 # #
 # # r = requests.get('https://www.wunderground.com/history/airport/{}/2016/4/0/MonthlyHistory.html?format=1'.format('KSEA'))
 # # print(r.text)
+
+
+
+pprint.pprint(local_city_grabber('06424'))
+pprint.pprint(weather_station_code_grabber())
