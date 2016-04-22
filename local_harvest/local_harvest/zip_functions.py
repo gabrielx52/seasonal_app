@@ -2,8 +2,6 @@ import zipcode
 import re
 import requests
 import pprint
-import logging
-
 
 def local_city_grabber(starting_zip='98119', mile_radius=100):
     """returns set of cities within radius of starting zip"""
@@ -42,7 +40,8 @@ def plant_hardiness_zone(cities=weather_station_code_grabber()):
     return cities
 
 
-def weather_report_grabber(city_codes=weather_station_code_grabber())
+def weather_report_grabber(city_codes=weather_station_code_grabber()):
+    ...
 # #starting to get weather data. need to make mock produce data for cross reference
 
 # for i in codes:
