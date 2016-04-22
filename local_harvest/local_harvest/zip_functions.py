@@ -5,17 +5,11 @@ import pprint
 import logging
 
 
-
-
 def local_city_grabber(starting_zip='98119', mile_radius=100):
     """returns set of cities within radius of starting zip"""
     zip_obj = zipcode.isequal(starting_zip)
     local_zips = zipcode.isinradius((zip_obj.lat, zip_obj.lon), mile_radius)
     return {'{} {}'.format(i.state, i.city) for i in local_zips}
-
-def plant_hardiness_zone(cities=local_city_grabber())
-
-    for city in cities:
 
 
 def weather_station_code_grabber(cities=local_city_grabber()):
@@ -34,6 +28,19 @@ def weather_station_code_grabber(cities=local_city_grabber()):
         except:
             pass
     return city_codes
+
+
+def plant_hardiness_zone(cities=weather_station_code_grabber()):
+    """Adds plant hardiness zone to cities in dict"""
+    root_site = 'https://shop.arborday.org/LookUp.aspx?zipcode='
+    for city in cities:
+        l = root_site + '{}'.format(cities[city]['zip'])
+        r = requests.get(root_site + '{}'.format(cities[city]['zip']))
+        zone = re.search('\s\d\-*\d*',re.search('Zones?\s\d+\-*\d*', r.text).group())
+        if zone:
+            cities[city]['zone'] = zone.group().strip()
+    return cities
+
 
 def weather_report_grabber(city_codes=weather_station_code_grabber())
 # #starting to get weather data. need to make mock produce data for cross reference
