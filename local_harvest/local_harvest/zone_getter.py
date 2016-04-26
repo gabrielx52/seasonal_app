@@ -4,12 +4,10 @@ import re
 
 
 def zone_getter():
-    """ Writes new csv file with Zip, City, State and Grow Zone"""
     root_site = 'https://shop.arborday.org/LookUp.aspx?zipcode='
     zip_db = csv.reader(open('zipcodes.csv', 'r'))
 
     ## ** Creates Header **
-    ## one time use to start the file
     ## with open('zonedata.csv', 'a') as outfile:
     ##     zone_writer = csv.writer(outfile)
     ##     zone_writer.writerow(['Zipcode', 'State', 'City', 'Grow zone'])

@@ -32,7 +32,8 @@ def veg_db_template(file='data_files/veg_list.txt'):
         outfile.write(str(plant_dict))
     return plant_dict
 
-def veg_param_editor(veggies='data_files/veg_data.txt'):
+
+def veg_param_editor(veggies='data/veg_data.txt'):
     with open(veggies, 'r+') as infile:
         veg = eval(infile.read())
         for row in veg:
